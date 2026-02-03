@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>⚡ CHALLENGE ACCEPTÉ ? ⚡</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <audio id="musique" loop>
+        <source src="https://www.chosic.com/wp-content/uploads/2021/07/The-Epic-Hero-Epic-Cinematic-Music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app">
+        <div id="step-conditions" class="screen active">
+            <h1>📜 LE CONTRAT</h1>
+            <div class="rules">
+                <p>1. Lance un <b>enregistrement d'écran</b> maintenant.</p>
+                <p>2. Si tu arrives à cliquer sur <b>NON</b> pendant 30 secondes, tu verras une page pour dire que tu as gagné.</p>
+                <p>3. Si tu perds, tu dois envoyer le message vocal suivant :</p>
+                <p class="phrase-cible">"Si on m'avait dit un jour que je serai autant amoureuse de toi comme ça j'allais dire c'est faux"</p>
+            </div>
+            <button class="btn pulse" onclick="accepterDefi()">J'ACCEPTE LE DÉFI</button>
+        </div>
+
+        <div id="step-game" class="screen">
+            <h2 id="status">ANALYSE DE SINCÉRITÉ : 0%</h2>
+            <div class="progress-container"><div id="bar"></div></div>
+            
+            <h3 class="question-text">Est-ce que cette phrase est vraie ?</h3>
+            <p class="phrase-display">"Je suis amoureuse de Mardochée"</p>
+            
+            <div class="area">
+                <button id="btnOui" class="btn" onclick="perdu()">OUI</button>
+                <button id="btnNon" class="btn">NON</button>
+            </div>
+        </div>
+
+        <div id="step-fail" class="screen">
+            <h1 class="blink">GAME OVER ! 💀 Tu as perdu</h1>
+            <p>Tu as cliqué sur OUI !</p>
+            <div class="result-box">
+                <p><b>TA DETTE :</b> Envoie le vocal maintenant.</p>
+                <p class="final-phrase">"Si on m'avait dit un jour que je serai autant amoureuse de toi comme ça j'allais dire c'est faux"</p>
+            </div>
+            <button class="btn" onclick="location.reload()">REESSAYER (Pour de faux)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
